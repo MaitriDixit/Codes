@@ -8,23 +8,7 @@ Created on Fri May  5 12:07:53 2023
 import pandas as pd
 from google_play_scraper import Sort, reviews, reviews_all
 
-
-# ideal_df = pd.read_csv(r"C:\Users\maitrid\Downloads\app_review_all.txt", sep="^")
-
-google_play_ids = {'Netflix':'com.netflix.mediaclient',
-                   'HBO Max':'com.hbo.hbonow',
-                   'Amazon Prime Video':'com.amazon.avod.thirdpartyclient',
-                   'Peacock':'com.peacocktv.peacockandroid',
-                   'Paramount Plus': 'com.cbs.app',
-                   'Starz':'com.bydeluxe.d3.android.program.starz',
-                   'Disney PLus':'com.disney.disneyplus',
-                   'Apple TV Plus':'com.apple.atve.sony.appletv',
-                   'BET Plus':'com.viacom.betplus',
-                   'FOX Soul':'com.fox.soul',
-                   'Discovery Plus':'com.discovery.discoveryplus.mobile',
-                   'Epix':'com.epix.epix.now',
-                   'Hulu':'com.hulu.plus',
-                   'Showtime':'showtime.standalone'}
+google_play_ids = {'Netflix':'com.netflix.mediaclient'}
 
 all_app_reviews = pd.DataFrame()
 
@@ -86,21 +70,6 @@ for res in result_all:
     app_all_data.append(all_data)
     
 app_all_data_df = pd.DataFrame(app_all_data)
-from datetime import datetime, timedelta       
-start_date = datetime.strptime('2022-01-01', '%Y-%m-%d')
-end_date = datetime.strptime('2022-05-01', '%Y-%m-%d')
-
-app_reviews = reviews(
-    'com.hbo.hbonow',
-    lang='en',
-    country='us',
-    sort=Sort.MOST_RELEVANT,
-    count=500,
-    filter_score_with=None,
-    filter_date_after=start_date,
-    filter_date_before=end_date
-)
-        
 
 
 
